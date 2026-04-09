@@ -1,0 +1,227 @@
+:root {
+  /* Panel Warna Utama */
+  --bg-dark: #121212;         /* Hitam Pekat Latar Belakang */
+  --bg-card: #1e1e1e;         /* Hitam Sedikit Lebih Terang untuk Kontainer */
+  --text-primary: #ffffff;    /* Putih Bersih untuk Teks Utama */
+  --text-secondary: #b0b0b0;  /* Abu-abu untuk Placeholder/Teks Kurang Penting */
+  
+  /* Warna Kuning "Nyala" (Accent) */
+  --accent-yellow: #ffee00;   /* Kuning Terang Menyala */
+  --accent-hover: #ffcc00;    /* Kuning Sedikit Gelap untuk Hover */
+  --accent-glow: rgba(255, 238, 0, 0.3); /* Efek Cahaya Kuning */
+  
+  /* Warna Border & Separator */
+  --border-dark: #333333;     /* Border Hitam Keabuan */
+  --border-accent: #444400;   /* Border Hitam Kekuningan Halus */
+}
+
+/* Reset Dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+#root {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+/* Judul (H1, H2) - Tetap Putih agar Elegan */
+h1, h2 {
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Kontainer Utama (Card) */
+.card {
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: border-color 0.3s ease;
+}
+
+/* Efek Glow Tipis pada Card saat Hover (Opsional, matikan jika norak) */
+.card:hover {
+  border-color: var(--border-accent);
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input Fields - Gelap dengan Teks Putih */
+input {
+  padding: 15px;
+  background-color: rgba(255,255,255,0.05);
+  border: 2px solid var(--border-dark);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Input saat Fokus - Border Kuning Menyala */
+input:focus {
+  outline: none;
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 10px var(--accent-glow);
+  background-color: rgba(255,255,255,0.08);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* Tombol Utama (Kuning Menyala) */
+button {
+  padding: 15px 25px;
+  background-color: var(--accent-yellow);
+  color: #000000; /* Teks tombol hitam agar terbaca jelas */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 238, 0, 0.2);
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 6px 20px rgba(255, 238, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Tombol Sekunder (Contoh: Cancel, View List) */
+button[style*="background: #7f8c8d"], 
+button[style*="background: #95a5a6"],
+button[style*="background: rgb(155, 161, 166)"] {
+  background-color: transparent !important;
+  color: var(--text-secondary) !important;
+  border: 2px solid var(--border-dark) !important;
+  margin-top: 10px;
+}
+
+button[style*="background: #7f8c8d"]:hover,
+button[style*="background: #95a5a6"]:hover {
+  background-color: rgba(255,255,255,0.05) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--text-secondary) !important;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden; /* Agar border-radius th/td bekerja */
+  border: 1px solid var(--border-dark);
+}
+
+th, td {
+  padding: 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+/* Header Tabel - Hitam Sedikit Terang */
+th {
+  background-color: #252525;
+  color: var(--accent-yellow); /* Teks Header Kuning agar kontras */
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Baris Tabel - Warna Teks Putih */
+td {
+  color: var(--text-primary);
+  background-color: var(--bg-card);
+}
+
+/* Hover pada Baris Tabel */
+tr:hover td {
+  background-color: #252525;
+}
+
+/* Menghilangkan border bawah pada baris terakhir */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tombol Aksi di Dalam Tabel */
+.btn-update {
+  background-color: transparent;
+  color: var(--accent-yellow);
+  border: 1px solid var(--accent-yellow);
+  padding: 8px 15px;
+  font-size: 12px;
+  box-shadow: none;
+}
+
+.btn-update:hover {
+  background-color: var(--accent-yellow);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: #ef5350; /* Merah kalem untuk delete */
+  border: 1px solid #ef5350;
+  padding: 8px 15px;
+  font-size: 12px;
+  margin-left: 8px;
+  box-shadow: none;
+}
+
+.btn-delete:hover {
+  background-color: #ef5350;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(239, 83, 80, 0.4);
+}
+
+/* Responsif Halus */
+@media (max-width: 600px) {
+  .card {
+    padding: 1.5rem;
+  }
+  
+  #root {
+    margin: 20px auto;
+    padding: 10px;
+  }
+}
+
+.accent-text {
+  color: var(--accent-yellow);
+  text-shadow: 0 0 8px var(--accent-glow);
+  font-weight: 8s00; /* Biar lebih tebal dan tegas */
+  margin-right: 5px; /* Kasih jarak sedikit dengan teks setelahnya */
+}
